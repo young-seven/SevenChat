@@ -314,8 +314,8 @@ button{
 
     border-radius:12px;
 
-
-    z-index:20;
+     cursor:pointer;
+    z-index:10000;
 
 
     box-shadow:
