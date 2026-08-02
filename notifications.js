@@ -8,85 +8,91 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-messaging.js";
 
 const VAPID_KEY =
-  "BJoNRtYK6d5sXO3GkuPoKSBrsTvqaWAS1aCCDMCqnMSGVdTfzASPX8zZKGWf3nFeCzNp8V-RY2_-DlWamnSZwR8";
+  "YOUR_VAPID_KEY_HERE";
 
-function showResult(message, color = "green") {
-  const box = document.createElement("div");
-
-  box.style.cssText =
-    `position:fixed;top:10px;left:10px;right:10px;z-index:99999;` +
-    `padding:15px;background:white;color:${color};border:2px solid ${color};` +
-    `border-radius:10px;font-size:14px;word-break:break-all;`;
-
-  box.textContent = message;
-
-  document.body.appendChild(box);
-}
 
 async function setupNotifications() {
 
   try {
 
-    showResult("🔄 FCM SETUP STARTED", "blue");
-
+    // Check whether Firebase Messaging is supported
     const supported = await isSupported();
 
     if (!supported) {
-      showResult("❌ FCM NOT SUPPORTED", "red");
+      console.log("FCM is not supported in this browser.");
       return;
     }
 
+    // Create Firebase Messaging instance
     const messaging = getMessaging(app);
 
+    // Ask for notification permission
     const permission = await Notification.requestPermission();
 
     if (permission !== "granted") {
-      showResult("❌ NOTIFICATION PERMISSION: " + permission, "red");
+      console.log("Notification permission was not granted.");
       return;
     }
 
+    // Register Firebase Messaging service worker
     const registration =
       await navigator.serviceWorker.register(
         "/SevenChat/firebase-messaging-sw.js"
       );
 
-    showResult("✅ SERVICE WORKER REGISTERED", "green");
+    console.log("Firebase service worker registered.");
 
+    // Get FCM registration token
     const token = await getToken(messaging, {
       vapidKey: VAPID_KEY,
       serviceWorkerRegistration: registration
     });
 
     if (token) {
+      console.log("🔥 FCM TOKEN RECEIVED");
 
-      showResult(
-        "✅ FCM TOKEN RECEIVED\n\n" + token,
-        "green"
-      );
-
-      onMessage(messaging, (payload) => {
-        console.log("🔔 FOREGROUND MESSAGE:", payload);
-      });
-
+      // IMPORTANT:
+      // Do not display the token publicly.
+      // Your backend should store/use this token
+      // for sending notifications to this device.
     } else {
-
-      showResult("❌ NO FCM TOKEN RECEIVED", "red");
-
+      console.log("❌ No FCM token received.");
     }
+
+    // Receive messages while the page is open
+    onMessage(messaging, (payload) => {
+
+      console.log("🔔 FCM MESSAGE RECEIVED:", payload);
+
+      const notificationTitle =
+        payload.notification?.title || "SevenChat";
+
+      const notificationBody =
+        payload.notification?.body || "You have a new message.";
+
+      // Show notification only when permission is granted
+      if (Notification.permission === "granted") {
+
+        new Notification(notificationTitle, {
+          body: notificationBody,
+          icon: "/SevenChat/icon.png"
+        });
+
+      }
+
+    });
 
   } catch (error) {
 
-    showResult(
-      "❌ FCM ERROR:\n\n" +
-      error.name +
-      "\n\n" +
-      error.message,
-      "red"
+    console.error(
+      "❌ Firebase Messaging error:",
+      error
     );
 
-    console.error("FCM ERROR:", error);
-
   }
+
 }
 
+
+// Start notification setup
 setupNotifications();
