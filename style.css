@@ -29,15 +29,6 @@ body{
 
 }
 
-#menuBox {
-  position: absolute;
-  z-index: 9999;
-}
-
-#menuBox button {
-  cursor: pointer;
-  pointer-events: auto;
-}
 
 /* ======================
    GLASS CONTAINER
