@@ -3,87 +3,68 @@
 
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<title>SevenChat</title>
+  <title>Login | SevenChat</title>
 
-<link rel="stylesheet"
-href="style.css">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="home-container">
+  <div class="auth-container">
 
-    <!-- HEADER -->
+    <h1>SevenChat</h1>
 
-    <div class="home-header">
+    <h2>Login</h2>
 
-        <div class="logo">
+    <input
+      type="email"
+      placeholder="Email"
+      id="email"
+      autocomplete="email"
+    >
 
-            <div class="logo-bubble">
-                S
-            </div>
+    <input
+      type="password"
+      placeholder="Password"
+      id="password"
+      autocomplete="current-password"
+    >
 
-            <span>SevenChat</span>
+    <button
+      class="primary"
+      id="loginBtn"
+      type="button"
+    >
+      Login
+    </button>
 
-        </div>
+    <p class="link">
+      Don't have an account?
+      <a class="sign" href="signup.html">
+        Sign up
+      </a>
+    </p>
 
-        <div id="homeMenu">
-            ☰
-        </div>
+  </div>
 
-    </div>
+  <script type="module" src="auth.js"></script>
 
-
-    <!-- SEARCH -->
-
-    <div class="search-area">
-
-        <input
-        type="text"
-        id="searchInput"
-        placeholder="🔍 Search users...">
-
-    </div>
-
-    <div id="conversationList"></div>
-
-    <!-- CHAT LIST -->
-
-   <div id="chatList" class="chat-list">
-    
-    <div class="emptyChats">
-        
-        <div class="emptyIcon">
-            💬
-        </div>
-        
-        <h2>
-            No conversations yet
-        </h2>
-        
-        <p>
-            Search for someone and start chatting.
-        </p>
-        
-    </div>
-    
-</div>
-        <!-- Chats will appear here -->
-
-    </div>
-
-</div>
-
-<script type="module" src="search.js"></script>
-<script type="module" src="presence.js"></script>
-<script type="module" src="home.js"></script>
-<script type="module" src="notifications.js"></script>
 </body>
 
 </html>
