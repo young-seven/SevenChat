@@ -8,7 +8,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-messaging.js";
 
 const VAPID_KEY =
-  "YOUR_VAPID_KEY_HERE";
+  "BJoNRtYK6d5sXO3GkuPoKSBrsTvqaWAS1aCCDMCqnMSGVdTfzASPX8zZKGWf3nFeCzNp8V-RY2_-DlWamnSZwR8";
 
 
 async function setupNotifications() {
