@@ -1,4 +1,5 @@
-import { auth, db } from "./firebase.js";
+console.log("Auth.JS LOADED")
+import{auth,db } from "./firebase.js";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword
