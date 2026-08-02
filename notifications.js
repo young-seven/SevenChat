@@ -67,16 +67,17 @@ if (token) {
     "position:fixed;top:10px;left:10px;right:10px;" +
     "z-index:99999;padding:15px;background:white;" +
     "color:black;border:2px solid green;" +
-    "border-radius:10px;font-size:14px;word-break:break-all;";
+    "border-radius:10px;font-size:13px;" +
+    "word-break:break-all;";
 
-  box.textContent =
-    "✅ FCM TOKEN RECEIVED";
+  box.innerHTML =
+    "<strong>✅ FCM TOKEN RECEIVED</strong><br><br>" +
+    "<strong>Token:</strong><br>" +
+    token;
 
   document.body.appendChild(box);
 
 } else {
-
-  console.error("❌ NO FCM TOKEN");
 
   const box = document.createElement("div");
 
@@ -90,5 +91,4 @@ if (token) {
     "❌ NO FCM TOKEN RECEIVED";
 
   document.body.appendChild(box);
-
 }
