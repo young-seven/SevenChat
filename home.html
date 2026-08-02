@@ -8,62 +8,86 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-  <title>Login | SevenChat</title>
+  <title>SevenChat</title>
 
   <link rel="stylesheet" href="style.css">
-
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
 
 </head>
 
 <body>
 
-  <div class="auth-container">
+  <div class="home-container">
 
-    <h1>SevenChat</h1>
+    <!-- HEADER -->
 
-    <h2>Login</h2>
+    <div class="home-header">
 
-    <input
-      type="email"
-      placeholder="Email"
-      id="email"
-      autocomplete="email"
-    >
+      <div class="logo">
 
-    <input
-      type="password"
-      placeholder="Password"
-      id="password"
-      autocomplete="current-password"
-    >
+        <div class="logo-bubble">
+          S
+        </div>
 
-    <button
-      class="primary"
-      id="loginBtn"
-      type="button"
-    >
-      Login
-    </button>
+        <span>SevenChat</span>
 
-    <p class="link">
-      Don't have an account?
-      <a class="sign" href="signup.html">
-        Sign up
-      </a>
-    </p>
+      </div>
+
+      <div id="homeMenu">
+        ☰
+      </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-area">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Search users..."
+      >
+
+    </div>
+
+
+    <!-- CONVERSATIONS -->
+
+    <div id="conversationList"></div>
+
+
+    <!-- CHAT LIST -->
+
+    <div id="chatList" class="chat-list">
+
+      <div class="emptyChats">
+
+        <div class="emptyIcon">
+          💬
+        </div>
+
+        <h2>
+          No conversations yet
+        </h2>
+
+        <p>
+          Search for someone and start chatting.
+        </p>
+
+      </div>
+
+    </div>
 
   </div>
 
-  <script type="module" src="auth.js"></script>
+
+  <!-- JAVASCRIPT -->
+
+  <script type="module" src="home.js"></script>
+  <script type="module" src="search.js"></script>
+  <script type="module" src="presence.js"></script>
+  <script type="module" src="notifications.js"></script>
 
 </body>
 
