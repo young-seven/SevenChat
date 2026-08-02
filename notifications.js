@@ -49,44 +49,46 @@ async function setupNotifications() {
     
     console.log("✅ SERVICE WORKER REGISTERED");
     
-    const token = await getToken(
-      messaging,
-      {
-        vapidKey: VAPID_KEY,
-        serviceWorkerRegistration: registration
-      }
-    );
-    
-    if (token) {
-      
-      console.log("🔥 FCM TOKEN RECEIVED");
-      
-    } else {
-      
-      console.error("❌ NO FCM TOKEN");
-      
-    }
-    
-    onMessage(messaging, (payload) => {
-      
-      console.log(
-        "🔔 FOREGROUND MESSAGE:",
-        payload
-      );
-      
-    });
-    
+const token = await getToken(
+  messaging,
+  {
+    vapidKey: VAPID_KEY,
+    serviceWorkerRegistration: registration
   }
-  
-  catch (error) {
-    
-    console.error(
-      "❌ NOTIFICATION SETUP ERROR:",
-      error
-    );
-    
-  }
-  
-}
+);
 
-setupNotifications();
+if (token) {
+
+  console.log("🔥 FCM TOKEN RECEIVED");
+
+  const box = document.createElement("div");
+
+  box.style.cssText =
+    "position:fixed;top:10px;left:10px;right:10px;" +
+    "z-index:99999;padding:15px;background:white;" +
+    "color:black;border:2px solid green;" +
+    "border-radius:10px;font-size:14px;word-break:break-all;";
+
+  box.textContent =
+    "✅ FCM TOKEN RECEIVED";
+
+  document.body.appendChild(box);
+
+} else {
+
+  console.error("❌ NO FCM TOKEN");
+
+  const box = document.createElement("div");
+
+  box.style.cssText =
+    "position:fixed;top:10px;left:10px;right:10px;" +
+    "z-index:99999;padding:15px;background:white;" +
+    "color:red;border:2px solid red;" +
+    "border-radius:10px;font-size:14px;";
+
+  box.textContent =
+    "❌ NO FCM TOKEN RECEIVED";
+
+  document.body.appendChild(box);
+
+}
