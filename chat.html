@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>SevenChat</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="chat-container">
+
+
+<!-- CHAT HEADER -->
+
+<div class="chat-header">
+
+
+<div class="logo">
+
+<div class="logo-bubble">
+S
+</div>
+
+
+<span>
+SevenChat
+</span>
+
+
+</div>
+
+
+
+<div id="menu">
+☰
+</div>
+
+
+
+<div id="menuBox">
+  
+  <p>
+    Profile
+  </p>
+  
+  <p>
+    Setting
+  </p>
+  
+  <p id="editProfileMenuBtn">
+  ️  Edit Profile
+  </p>
+  
+  <p id="changeAvatarBtn">
+     Change Avatar
+  </p>
+  
+  <p id="logoutBtn">
+    Logout
+  </p>
+  
+</div>
+
+</div>
+
+
+
+<!-- PROFILE -->
+
+<div id="profile">
+
+
+<img
+id="profilePic"
+src="images/avatars/avatar1.png"
+alt="Profile Picture"
+>
+
+
+
+<div>
+
+
+<h3 id="profileName">
+Loading...
+</h3>
+
+
+
+<p id="status">
+🟢 Online
+</p>
+
+
+
+<p id="typingStatus"></p>
+
+
+
+<p id="profileBio">
+No bio yet
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- EDIT PROFILE BOX -->
+
+<div id="editProfileBox" style="display:none;">
+
+
+<input
+id="newUsername"
+placeholder="Enter username"
+>
+
+
+<input
+id="newBio"
+placeholder="Enter bio"
+>
+
+
+
+<button id="saveProfileBtn">
+Save
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- MESSAGES -->
+
+
+<div 
+class="messages"
+id="messages">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- CHAT INPUT -->
+
+
+<div class="chat-input">
+
+
+<button>
+😄
+</button>
+
+
+
+<input
+
+type="text"
+
+id="messageInput"
+
+placeholder="Text Message • Online"
+
+>
+
+
+
+
+
+<button id="sendBtn">
+
+›
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+<script type="module" src="chat.js"></script>
+
+<!-- AVATAR POPUP -->
+
+<div id="avatarOverlay" style="display:none;">
+
+
+  <div id="avatarPopup">
+
+
+    <h3>
+      Choose Avatar
+    </h3>
+
+
+    <div class="avatar-grid">
+
+
+      <img 
+      class="avatar"
+      src="images/avatars/avatar1.png">
+
+
+      <img 
+      class="avatar"
+      src="images/avatars/avatar2.png">
+
+
+      <img 
+      class="avatar"
+      src="images/avatars/avatar3.png">
+
+
+      <img 
+      class="avatar"
+      src="images/avatars/avatar4.png">
+
+
+    </div>
+
+
+    <button id="closeAvatarBtn">
+      Cancel
+    </button>
+
+
+  </div>
+
+
+</div>
+<script type="module" src="presence.js"></script>
+<script type="module" src="./chat-test.js"></script>
+<script type="module" src="notifications.js"></script>
+</body>
+
+</html>

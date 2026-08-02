@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>SevenChat</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<div class="home-container">
+
+    <!-- HEADER -->
+
+    <div class="home-header">
+
+        <div class="logo">
+
+            <div class="logo-bubble">
+                S
+            </div>
+
+            <span>SevenChat</span>
+
+        </div>
+
+        <div id="homeMenu">
+            ☰
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-area">
+
+        <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Search users...">
+
+    </div>
+
+    <div id="conversationList"></div>
+
+    <!-- CHAT LIST -->
+
+   <div id="chatList" class="chat-list">
+    
+    <div class="emptyChats">
+        
+        <div class="emptyIcon">
+            💬
+        </div>
+        
+        <h2>
+            No conversations yet
+        </h2>
+        
+        <p>
+            Search for someone and start chatting.
+        </p>
+        
+    </div>
+    
+</div>
+        <!-- Chats will appear here -->
+
+    </div>
+
+</div>
+
+<script type="module"
+src="home.js"></script>
+
+<script type="module" src="search.js"></script>
+<script type="module" src="presence.js"></script>
+<script type="module" src="home.js"></script>
+
+</body>
+
+</html>
